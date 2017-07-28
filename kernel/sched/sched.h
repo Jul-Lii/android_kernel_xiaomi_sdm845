@@ -2411,6 +2411,7 @@ static inline void cpufreq_update_util(struct rq *rq, unsigned int flags)
 						  cpu_of(rq)));
 	if (data)
 		data->func(data, clock, flags);
+		data->func(data, sched_ktime_clock(), flags);
 }
 #else
 static inline void cpufreq_update_util(struct rq *rq, unsigned int flags) {}
