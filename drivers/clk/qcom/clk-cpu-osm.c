@@ -853,7 +853,11 @@ static int osm_cpufreq_cpu_init(struct cpufreq_policy *policy)
 		goto err;
 	}
 
+<<<<<<< HEAD
 	policy->cpuinfo.transition_latency = MIN_RATE_LIMIT_US;
+=======
+	policy->dvfs_possible_from_any_cpu = true;
+>>>>>>> 46709e5553fc9 (clk: qcom: clk-cpu-osm: Set dvfs_possible_from_any_cpu cpufreq driver flag)
 	policy->driver_data = c;
 
 	kfree(of_table);
