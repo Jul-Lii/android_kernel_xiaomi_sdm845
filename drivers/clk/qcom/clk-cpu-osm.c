@@ -713,6 +713,21 @@ osm_cpufreq_target_index(struct cpufreq_policy *policy, unsigned int index)
 	return 0;
 }
 
+static unsigned int
+osm_cpufreq_fast_switch(struct cpufreq_policy *policy, unsigned int target_freq)
+{
+	int index;
+
+	index = cpufreq_frequency_table_target(policy, target_freq,
+							CPUFREQ_RELATION_L);
+	if (index < 0)
+		return 0;
+
+	osm_cpufreq_target_index(policy, index);
+
+	return policy->freq_table[index].frequency;
+}
+
 static unsigned int osm_cpufreq_get(unsigned int cpu)
 {
 	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
@@ -853,11 +868,9 @@ static int osm_cpufreq_cpu_init(struct cpufreq_policy *policy)
 		goto err;
 	}
 
-<<<<<<< HEAD
 	policy->cpuinfo.transition_latency = MIN_RATE_LIMIT_US;
-=======
 	policy->dvfs_possible_from_any_cpu = true;
->>>>>>> 46709e5553fc9 (clk: qcom: clk-cpu-osm: Set dvfs_possible_from_any_cpu cpufreq driver flag)
+	policy->fast_switch_possible = true;
 	policy->driver_data = c;
 
 	kfree(of_table);
@@ -890,6 +903,7 @@ static struct cpufreq_driver qcom_osm_cpufreq_driver = {
 	.get		= osm_cpufreq_get,
 	.init		= osm_cpufreq_cpu_init,
 	.exit		= osm_cpufreq_cpu_exit,
+	.fast_switch	= osm_cpufreq_fast_switch,
 	.name		= "osm-cpufreq",
 	.attr		= osm_cpufreq_attr,
 	.boost_enabled	= true,
