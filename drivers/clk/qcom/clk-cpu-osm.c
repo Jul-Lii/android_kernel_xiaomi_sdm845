@@ -103,6 +103,7 @@ struct clk_osm {
 	u32 mx_turbo_freq;
 	ktime_t last_update;
 	struct mutex update_lock;
+	cpumask_t related_cpus;
 };
 
 static bool is_sdm845v1;
@@ -655,7 +656,7 @@ static struct clk_osm *osm_configure_policy(struct cpufreq_policy *policy)
 		if (parent != c_parent)
 			continue;
 
-		cpumask_set_cpu(cpu, policy->cpus);
+		cpumask_set_cpu(cpu, &c->related_cpus);
 		if (n->core_num == 0)
 			first = n;
 	}
