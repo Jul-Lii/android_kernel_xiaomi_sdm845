@@ -228,7 +228,46 @@ static void sugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 	*util = min(rq->cfs.avg.util_avg+rt, max_cap);
 	*max = max_cap;
 
-	*util = boosted_cpu_util(cpu, &loadcpu->walt_load);
+	/* Sum rq utilization */
+	util = cpu_util_cfs(rq);
+	util += cpu_util_rt(rq);
+
+	/*
+	 * Interrupt time is not seen by RQS utilization so we can compare
+	 * them with the CPU capacity
+	 */
+	if ((util + cpu_util_dl(rq)) >= max)
+		return max;
+
+	/*
+	 * As there is still idle time on the CPU, we need to compute the
+	 * utilization level of the CPU.
+	 *
+	 * Bandwidth required by DEADLINE must always be granted while, for
+	 * FAIR and RT, we use blocked utilization of IDLE CPUs as a mechanism
+	 * to gracefully reduce the frequency when no tasks show up for longer
+	 * periods of time.
+	 *
+	 * Ideally we would like to set util_dl as min/guaranteed freq and
+	 * util_cfs + util_dl as requested freq. However, cpufreq is not yet
+	 * ready for such an interface. So, we only do the latter for now.
+	 */
+
+	/* Weight RQS utilization to normal context window */
+	util *= (max - irq);
+	util /= max;
+
+	/* Add interrupt utilization */
+	util += irq;
+
+	/* Add DL bandwidth requirement */
+	util += sg_cpu->bw_dl;
+	
+#ifdef CONFIG_UCLAMP_TASK
+	util = uclamp_util_with(rq, util, NULL);
+#endif
+
+	return min(max, util);
 }
 
 static void sugov_set_iowait_boost(struct sugov_cpu *sg_cpu, u64 time)
