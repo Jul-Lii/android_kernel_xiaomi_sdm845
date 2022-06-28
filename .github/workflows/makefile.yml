@@ -14,7 +14,7 @@ jobs:
       uses: lemniskett/android-kernel-actions@master
       with:
         arch: arm64                                   # Specify arch
-        compiler: gcc/10                               # Specify toolchain to use
+        compiler: aosp-clang/master/clang-r450784d                               # Specify toolchain to use
         defconfig: dipper_defconfig                    # Specify defconfig to use
         image: Image.gz-dtb                           # Specify final build file
     - name: releases-action
