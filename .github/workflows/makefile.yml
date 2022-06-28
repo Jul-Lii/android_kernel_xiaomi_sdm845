@@ -15,7 +15,7 @@ jobs:
       with:
         arch: arm64                                   # Specify arch
         compiler: aosp-clang/master/clang-r450784d                               # Specify toolchain to use
-        defconfig: dipper_defconfig                   # Specify defconfig to use
+        defconfig: mi_defconfig                   # Specify defconfig to use
         image: Image.gz-dtb                           # Specify final build file
     - name: releases-action
   # You may pin to the exact commit or the version.
