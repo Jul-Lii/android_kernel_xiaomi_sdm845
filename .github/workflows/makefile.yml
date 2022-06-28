@@ -22,7 +22,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Release 
-        path: ${{ github.workspace }}/Image.gz-dtb
+        path: /home/runner/work/android_kernel_xiaomi_sdm845/android_kernel_xiaomi_sdm845/out/arch/arm64/boot/Image.gz-dtb
         if-no-files-found: warn
       
           
