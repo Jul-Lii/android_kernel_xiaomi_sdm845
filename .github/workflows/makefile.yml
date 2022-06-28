@@ -17,21 +17,10 @@ jobs:
         compiler: clang/11/binutils           
         defconfig: mi_defconfig
         image: Image.gz-dtb                           
-    - name: releases-action
-  # You may pin to the exact commit or the version.
-  # uses: nickatnight/releases-action@893540eb446b37c82cf414f2bb439e805e70b41f
-      uses: nickatnight/releases-action@v2
+    
+    - name: Release build
+      uses: ncipollo/release-action@v1
       with:
-    # Name of branch to release from
-        branch: 12 # optional, default is master
-    # Name of the release
-        name: test # optional
-    # Message for the release
-        message: hi # optional
-    # Draft or naw?
-        draft: true # optional, default is false
-    # Pre-release or naw
-        prerelease: false # optional, default is false
-    # Name of tag
-        tag: none # optional
+        artifacts: ${{ steps.<step id>.outputs.outfile }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     
