@@ -18,7 +18,11 @@ jobs:
         defconfig: mi_defconfig
         image: Image.gz-dtb                           
     
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
+    - name: Release build artifact
+      uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.build.outputs.outfile }}
+        name: Release 
+        path: ${{ github.workspace }}/Image.gz-dtb
+        if-no-files-found: warn
+      
+          
