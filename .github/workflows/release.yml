@@ -1,0 +1,5 @@
+- name: Release build
+  uses: ncipollo/release-action@v1
+  with:
+    artifacts: ${{ steps.<step id>.outputs.outfile }}
+    token: ${{ secrets.GITHUB_TOKEN }}
