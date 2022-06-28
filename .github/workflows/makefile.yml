@@ -8,15 +8,15 @@ jobs:
     name: "Build kernel"
     runs-on: ubuntu-latest
     steps:
-    - name: "Checkout kernel source"                  # Clone the kernel source.
+    - name: "Checkout kernel source"     
       uses: actions/checkout@v2
-    - name: "Android kernel build"                    # Build kernel with lemniskett/android-kernel-actions.
+    - name: "Android kernel build"                    
       uses: lemniskett/android-kernel-actions@master
       with:
-        arch: arm64                                   # Specify arch
-        compiler: aosp-clang/master/clang-r450784d/binutils                               # Specify toolchain to use
-        defconfig: mi_defconfig                   # Specify defconfig to use
-        image: Image.gz-dtb                           # Specify final build file
+        arch: arm64                                  
+        compiler: clang/11/binutils           
+        defconfig: mi_defconfig
+        image: Image.gz-dtb                           
     - name: releases-action
   # You may pin to the exact commit or the version.
   # uses: nickatnight/releases-action@893540eb446b37c82cf414f2bb439e805e70b41f
