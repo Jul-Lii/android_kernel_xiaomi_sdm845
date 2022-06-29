@@ -38,6 +38,5 @@ obj-$(CONFIG_CPU_FREQ_GOV_SMURFUTIL_FLEX) += cpufreq_smurfutil_flex.o
 obj-$(CONFIG_CPU_FREQ_GOV_ALUCARDSCHED) += cpufreq_alucardsched.o
 obj-$(CONFIG_CPU_FREQ_GOV_SMURFUTIL) += cpufreq_smurfutil.o
 obj-$(CONFIG_CPU_FREQ_GOV_PIXUTIL) += cpufreq_pixutil.o
->>>>>>> bcf215e4b6c6... cpufreq: blu_schedutil: Introduce initial bringup
 obj-$(CONFIG_SCHED_CORE_CTL) += core_ctl.o
 obj-$(CONFIG_PSI) += psi.o
