@@ -139,7 +139,6 @@ config CPU_FREQ_DEFAULT_GOV_BLU_SCHEDUTIL
 	  have a look at the help section of that governor. The fallback
 	  governor will be 'performance'.
 
-<<<<<<< HEAD
 config CPU_FREQ_DEFAULT_GOV_PIXEL_SMURFUTIL
 	bool "pixel_smurfutil"
 	depends on SMP
@@ -178,7 +177,6 @@ config CPU_FREQ_DEFAULT_GOV_PIXUTIL
           Use the 'pixutil' CPUFreq governor by default. If unsure,
           have a look at the help section of that governor. The fallback
           governor will be 'performance'.
-	  initial bringup
 	  
 endchoice
 
