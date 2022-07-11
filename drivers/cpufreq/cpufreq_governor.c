@@ -266,9 +266,6 @@ static void dbs_update_util_handler(struct update_util_data *data, u64 time,
 	struct policy_dbs_info *policy_dbs = cdbs->policy_dbs;
 	u64 delta_ns, lst;
 
-	if (!cpufreq_can_do_remote_dvfs(policy_dbs->policy))
-		return;
-
 	/*
 	 * The work may not be allowed to be queued up right now.
 	 * Possible reasons:
@@ -386,6 +383,7 @@ int cpufreq_dbs_governor_init(struct cpufreq_policy *policy)
 	struct dbs_governor *gov = dbs_governor_of(policy);
 	struct dbs_data *dbs_data;
 	struct policy_dbs_info *policy_dbs;
+	unsigned int latency;
 	int ret = 0;
 
 	/* State should be equivalent to EXIT */
@@ -424,9 +422,16 @@ int cpufreq_dbs_governor_init(struct cpufreq_policy *policy)
 	if (ret)
 		goto free_policy_dbs_info;
 
+	/* policy latency is in ns. Convert it to us first */
+	latency = policy->cpuinfo.transition_latency / 1000;
+	if (latency == 0)
+		latency = 1;
+
+	/* Bring kernel and HW constraints together */
 	dbs_data->min_sampling_rate = max(dbs_data->min_sampling_rate,
 					  MIN_LATENCY_MULTIPLIER * latency);
-	dbs_data->sampling_rate = cpufreq_policy_transition_delay_us(policy);
+	dbs_data->sampling_rate = max(dbs_data->min_sampling_rate,
+				      LATENCY_MULTIPLIER * latency);
 
 	if (!have_governor_per_policy())
 		gov->gdbs_data = dbs_data;

@@ -120,22 +120,6 @@ struct cpufreq_policy {
 	bool			fast_switch_possible;
 	bool			fast_switch_enabled;
 
-	/*
-	 * Remote DVFS flag (Not added to the driver structure as we don't want
-	 * to access another structure from scheduler hotpath).
-	 *
-	 * Should be set if CPUs can do DVFS on behalf of other CPUs from
-	 * different cpufreq policies.
-	 */
-	bool			dvfs_possible_from_any_cpu;
-	
-	/*
-	 * Preferred average time interval between consecutive invocations of
-	 * the driver to set the frequency for this policy.  To be set by the
-	 * scaling driver (0, which is the default, means no preference).
-	 */
-	unsigned int		transition_delay_us;
-
 	 /* Cached frequency lookup from cpufreq_driver_resolve_freq. */
 	unsigned int cached_target_freq;
 	int cached_resolved_idx;
@@ -550,7 +534,6 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
 				   unsigned int relation);
 unsigned int cpufreq_driver_resolve_freq(struct cpufreq_policy *policy,
 					 unsigned int target_freq);
-unsigned int cpufreq_policy_transition_delay_us(struct cpufreq_policy *policy);
 int cpufreq_register_governor(struct cpufreq_governor *governor);
 void cpufreq_unregister_governor(struct cpufreq_governor *governor);
 
@@ -616,15 +599,6 @@ extern struct cpufreq_governor cpufreq_gov_interactive;
 extern struct cpufreq_governor cpufreq_gov_sched;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_sched)
 #endif
-
-static inline bool cpufreq_can_do_remote_dvfs(struct cpufreq_policy *policy)
-{
-	/* Allow remote callbacks only on the CPUs sharing cpufreq policy */
-	if (cpumask_test_cpu(smp_processor_id(), policy->cpus))
-		return true;
-
-	return false;
-}
 
 /*********************************************************************
  *                     FREQUENCY TABLE HELPERS                       *
@@ -958,9 +932,6 @@ unsigned int cpufreq_generic_get(unsigned int cpu);
 int cpufreq_generic_init(struct cpufreq_policy *policy,
 		struct cpufreq_frequency_table *table,
 		unsigned int transition_latency);
-
-void scale_freq_capacity(const cpumask_t *cpus, unsigned long cur_freq,
-			 unsigned long max_freq);
 
 struct sched_domain;
 unsigned long cpufreq_scale_freq_capacity(struct sched_domain *sd, int cpu);
