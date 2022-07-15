@@ -34,7 +34,7 @@
 
 void signalfd_cleanup(struct sighand_struct *sighand)
 {
-	wake_up_pollfree(&sighand->signalfd_wqh);
+	wait_queue_head_t *wqh = &sighand->signalfd_wqh;
 	/*
 	 * The lockless check can race with remove_wait_queue() in progress,
 	 * but in this case its caller should run under rcu_read_lock() and
