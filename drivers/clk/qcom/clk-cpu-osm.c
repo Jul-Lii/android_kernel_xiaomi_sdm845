@@ -771,7 +771,7 @@ static int osm_cpufreq_cpu_init(struct cpufreq_policy *policy)
 	struct em_data_callback em_cb = EM_DATA_CB(of_dev_pm_opp_get_cpu_power);
 	struct clk_osm *c, *parent;
 	struct clk_hw *p_hw;
-	int ret, nr_opp;
+	int ret, nr_opp, of_len;
 	unsigned int i, prev_cc = 0;
 	unsigned int xo_kHz;
 	u32 *of_table = NULL;
