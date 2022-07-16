@@ -7957,12 +7957,6 @@ static unsigned long cpu_util_next(int cpu, struct task_struct *p, int dst_cpu)
 	return min_t(unsigned long, util, capacity_orig_of(cpu));
 }
 
-unsigned long sched_get_rt_rq_util(int cpu)
-{
-	struct rq *rq = cpu_rq(cpu);
-	return cpu_util_rt(rq);
-}
-
 /*
  * compute_energy_simplified(): Estimates the energy that would be consumed
  * if @p was migrated to @dst_cpu. compute_energy_simplified() predicts what
