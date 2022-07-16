@@ -440,11 +440,6 @@ void arm64_set_ssbd_mitigation(bool state);
 static inline void arm64_set_ssbd_mitigation(bool state) {}
 #endif
 
-static inline bool system_supports_fpsimd(void)
-{
-	return !cpus_have_const_cap(ARM64_HAS_NO_FPSIMD);
-}
-
 /* Watch out, ordering is important here. */
 enum mitigation_state {
 	SPECTRE_UNAFFECTED,
