@@ -55,7 +55,6 @@ void calc_runnable_avg_yN_sum(const int halflife)
 int n;
 long max;
 
-
 void calc_converged_max(const int halflife)
 {
 	long last = 0, y_inv = ((1UL<<32)-1)*y;
