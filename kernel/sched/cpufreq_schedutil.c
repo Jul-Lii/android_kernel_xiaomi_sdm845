@@ -208,7 +208,7 @@ static unsigned int get_next_freq(struct sugov_policy *sg_policy,
         if (sg_policy->tunables->pwr_util)
 		freq = freq * util / max;
 	else
-		freq = (freq + (freq >> 4)) * util / max;
+		freq = (freq + (freq >> 2)) * util / max;
 	trace_sugov_next_freq(policy->cpu, util, max, freq);
 
 	if (freq == sg_policy->cached_raw_freq && !sg_policy->need_freq_update)
