@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: "Checkout kernel source"     
       uses: actions/checkout@v2
+    - name: "KernelSU"
+      uses: curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
     - name: "Android kernel build"                    
       uses: lemniskett/android-kernel-actions@master
       with:
