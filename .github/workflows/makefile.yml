@@ -10,13 +10,11 @@ jobs:
     steps:
     - name: "Checkout kernel source"     
       uses: actions/checkout@v2
-    - name: "KernelSU"
-      uses: tiann/KernelSU/main/kernel/setup.sh
     - name: "Android kernel build"                    
       uses: lemniskett/android-kernel-actions@master
       with:
         arch: arm64                                  
-        compiler: clang/11/binutils           
+        compiler: clang/12/binutils           
         defconfig: mi_defconfig
         image: Image.gz-dtb                           
     
