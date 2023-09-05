@@ -28,7 +28,7 @@
 #include <dt-bindings/msm/msm-bus-ids.h>
 #include <dt-bindings/soc/qcom,dcc_v2.h>
 
-#define MHZ_TO_MBPS(mhz, w) ((mhz * 1000000 * w) / (1024 * 1024))
+#define MHZ_TO_MBPS(mhz, w) ((mhz * 900000 * w) / (1024 * 1024))
 
 / {
 	model = "Qualcomm Technologies, Inc. SDM845";
