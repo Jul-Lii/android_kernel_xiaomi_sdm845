@@ -71,8 +71,6 @@
  */
 static int device_open(struct inode *, struct file *);
 static int device_release(struct inode *, struct file *);
-static ssize_t sdevice_read(struct file *, char *, size_t, loff_t *);
-static ssize_t sdevice_write(struct file *, const char *, size_t, loff_t *);
 static uint64_t wyhash64(void);
 static uint64_t wyhash64_2(void);
 static uint64_t xoroshiro256(void);
@@ -114,7 +112,7 @@ static struct proc_ops proc_fops={
       .proc_lseek = seq_lseek
 };
 #else
-static const struct file_operations proc_fops = {
+const struct file_operations proc_fops = {
         .owner   = THIS_MODULE,
         .read    = seq_read,
         .open    = proc_open,
