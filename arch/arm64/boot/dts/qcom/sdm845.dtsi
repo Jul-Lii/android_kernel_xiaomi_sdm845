@@ -1064,11 +1064,12 @@
 		qcom,target-dev = <&memlat_cpu0>;
 		qcom,cachemiss-ev = <0x2A>;
 		qcom,core-dev-table =
-			<  300000 MHZ_TO_MBPS( 200, 4) >,
-			<  748800 MHZ_TO_MBPS( 450, 4) >,
-			< 1132800 MHZ_TO_MBPS( 700, 4) >,
+			<  300000 MHZ_TO_MBPS( 150, 4) >,
+			<  748800 MHZ_TO_MBPS( 400, 4) >,
+			< 1132800 MHZ_TO_MBPS( 800, 4) >,
 			< 1440000 MHZ_TO_MBPS(1000, 4) >,
-			< 1593600 MHZ_TO_MBPS(1250, 4) >;
+			< 1593600 MHZ_TO_MBPS(1200, 4) >,
+			< 1760000 MHZ_TO_MBPS(1600, 4) >;
 	};
 
 	devfreq_memlat_4: qcom,cpu4-memlat-mon {
@@ -1077,14 +1078,16 @@
 		qcom,target-dev = <&memlat_cpu4>;
 		qcom,cachemiss-ev = <0x2A>;
 		qcom,core-dev-table =
-			<  300000 MHZ_TO_MBPS( 200, 4) >,
-			<  499200 MHZ_TO_MBPS( 450, 4) >,
-			<  806400 MHZ_TO_MBPS( 700, 4) >,
-			< 1036800 MHZ_TO_MBPS( 850, 4) >,
-			< 1190400 MHZ_TO_MBPS(1050, 4) >,
-			< 1574400 MHZ_TO_MBPS(1250, 4) >,
-			< 1728000 MHZ_TO_MBPS(1555, 4) >,
-			< 1958400 MHZ_TO_MBPS(1804, 4) >;
+			<  300000 MHZ_TO_MBPS( 150, 4) >,
+			<  800200 MHZ_TO_MBPS( 400, 4) >,
+			< 1009400 MHZ_TO_MBPS( 800, 4) >,
+			< 1206800 MHZ_TO_MBPS(1000, 4) >,
+			< 1400400 MHZ_TO_MBPS(1200, 4) >,
+			< 1600400 MHZ_TO_MBPS(1400, 4) >,
+			< 1804400 MHZ_TO_MBPS(1600, 4) >,
+			< 2028000 MHZ_TO_MBPS(1800, 4) >,
+			< 2408400 MHZ_TO_MBPS(2000, 4) >,
+			< 2803000 MHZ_TO_MBPS(2200, 4) >;
 	};
 
 	l3_cpu0: qcom,l3-cpu0 {
