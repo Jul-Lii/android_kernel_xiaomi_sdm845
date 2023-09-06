@@ -349,7 +349,7 @@
 		< MHZ_TO_MBPS(600, 16) >, /*  8132 MB/s */
 		< MHZ_TO_MBPS(750, 16) >, /*  9155 MB/s */
 		< MHZ_TO_MBPS(900, 16) >, /* 12298 MB/s */
-		< MHZ_TO_MBPS(1050, 16) >; /* 14236 MB/s */
+		< MHZ_TO_MBPS(1050, 16) >, /* 14236 MB/s */
 		< MHZ_TO_MBPS(1200, 16) >; /* 18310 MB/s */
 };
 
@@ -364,7 +364,7 @@
 &devfreq_compute {
 	qcom,core-dev-table =
 		< 1881600 MHZ_TO_MBPS( 200, 4) >,
-		< 2649600 MHZ_TO_MBPS(1017, 4) >,
+		< 2649600 MHZ_TO_MBPS(1200, 4) >,
 		< 2803200 MHZ_TO_MBPS(2000, 4) >;
 };
 
