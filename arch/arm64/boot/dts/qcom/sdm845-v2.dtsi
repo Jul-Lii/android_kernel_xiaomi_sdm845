@@ -342,6 +342,7 @@
 
 &cpubw {
 	qcom,bw-tbl =
+		< MHZ_TO_MBPS(50, 16) >, /*  762 MB/s */
 		< MHZ_TO_MBPS(100, 16) >, /*  1525 MB/s */
 		< MHZ_TO_MBPS(150, 16) >, /*  2288 MB/s */
 		< MHZ_TO_MBPS(300, 16) >, /*  4577 MB/s */
@@ -662,24 +663,24 @@
 			reg = <5>;
 			qcom,gpu-freq = <342000000>;
 			qcom,bus-freq = <6>;
-			qcom,bus-min = <5>;
-			qcom,bus-max = <7>;
+			qcom,bus-min = <3>;
+			qcom,bus-max = <8>;
 		};
 
 		qcom,gpu-pwrlevel@6 {
 			reg = <6>;
 			qcom,gpu-freq = <257000000>;
 			qcom,bus-freq = <4>;
-			qcom,bus-min = <3>;
-			qcom,bus-max = <6>;
+			qcom,bus-min = <2>;
+			qcom,bus-max = <7>;
 		};
 
 		qcom,gpu-pwrlevel@7 {
 			reg = <7>;
 			qcom,gpu-freq = <140000000>;
 			qcom,bus-freq = <3>;
-			qcom,bus-min = <2>;
-			qcom,bus-max = <5>;
+			qcom,bus-min = <1>;
+			qcom,bus-max = <6>;
 		};
 
 		qcom,gpu-pwrlevel@8 {
