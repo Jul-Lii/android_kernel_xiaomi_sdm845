@@ -991,8 +991,8 @@
 			< MHZ_TO_MBPS(1400, 4) >, /* 3879 MB/s */
 			< MHZ_TO_MBPS(1600, 4) >, /* 4943 MB/s */
 			< MHZ_TO_MBPS(1800, 4) >, /* 5931 MB/s */
-			< MHZ_TO_MBPS(2000, 4) >; /* 6881 MB/s */
-			< MHZ_TO_MBPS(2200, 4) >, /* 8392 MB/s */
+			< MHZ_TO_MBPS(2000, 4) >, /* 6881 MB/s */
+			< MHZ_TO_MBPS(2200, 4) >; /* 8392 MB/s */
 	};
 
 	llcc_bwmon: qcom,llcc-bwmon {
@@ -1023,8 +1023,8 @@
 			< MHZ_TO_MBPS(1400, 4) >, /* 3879 MB/s */
 			< MHZ_TO_MBPS(1600, 4) >, /* 4943 MB/s */
 			< MHZ_TO_MBPS(1800, 4) >, /* 5931 MB/s */
-			< MHZ_TO_MBPS(2000, 4) >; /* 6881 MB/s */
-			< MHZ_TO_MBPS(2200, 4) >, /* 8392 MB/s */
+			< MHZ_TO_MBPS(2000, 4) >, /* 6881 MB/s */
+			< MHZ_TO_MBPS(2200, 4) >; /* 8392 MB/s */
 	};
 
 	memlat_cpu4: qcom,memlat-cpu4 {
@@ -1044,8 +1044,8 @@
 			< MHZ_TO_MBPS(1400, 4) >, /* 3879 MB/s */
 			< MHZ_TO_MBPS(1600, 4) >, /* 4943 MB/s */
 			< MHZ_TO_MBPS(1800, 4) >, /* 5931 MB/s */
-			< MHZ_TO_MBPS(2000, 4) >; /* 6881 MB/s */
-			< MHZ_TO_MBPS(2200, 4) >, /* 8392 MB/s */
+			< MHZ_TO_MBPS(2000, 4) >, /* 6881 MB/s */
+			< MHZ_TO_MBPS(2200, 4) >; /* 8392 MB/s */
 	};
 
 	snoc_cnoc_keepalive: qcom,snoc_cnoc_keepalive {
@@ -1159,8 +1159,8 @@
 			< MHZ_TO_MBPS(1400, 4) >, /* 3879 MB/s */
 			< MHZ_TO_MBPS(1600, 4) >, /* 4943 MB/s */
 			< MHZ_TO_MBPS(1800, 4) >, /* 5931 MB/s */
-			< MHZ_TO_MBPS(2000, 4) >; /* 6881 MB/s */
-			< MHZ_TO_MBPS(2200, 4) >, /* 8392 MB/s */
+			< MHZ_TO_MBPS(2000, 4) >, /* 6881 MB/s */
+			< MHZ_TO_MBPS(2200, 4) >; /* 8392 MB/s */
 	};
 
 	devfreq_cpufreq: devfreq-cpufreq {
