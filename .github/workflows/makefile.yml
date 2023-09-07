@@ -14,7 +14,7 @@ jobs:
       uses: lemniskett/android-kernel-actions@master
       with:
         arch: arm64                                  
-        compiler: aosp-clang/android12L-release/clang-r416183b1/binutils           
+        compiler: aosp-clang/master/clang-r498229/binutils           
         defconfig: mi_defconfig
         image: Image.gz-dtb                           
     
