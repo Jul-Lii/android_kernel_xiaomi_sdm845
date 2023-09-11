@@ -344,14 +344,17 @@
 	qcom,bw-tbl =
 		< MHZ_TO_MBPS(50, 16) >, /*  762 MB/s */
 		< MHZ_TO_MBPS(100, 16) >, /*  1525 MB/s */
-		< MHZ_TO_MBPS(150, 16) >, /*  2288 MB/s */
+		< MHZ_TO_MBPS(200, 16) >, /*  3051 MB/s */
 		< MHZ_TO_MBPS(300, 16) >, /*  4577 MB/s */
-		< MHZ_TO_MBPS(450, 16) >, /*  6500 MB/s */
-		< MHZ_TO_MBPS(600, 16) >, /*  8132 MB/s */
-		< MHZ_TO_MBPS(750, 16) >, /*  9155 MB/s */
-		< MHZ_TO_MBPS(900, 16) >, /* 12298 MB/s */
-		< MHZ_TO_MBPS(1050, 16) >, /* 14236 MB/s */
-		< MHZ_TO_MBPS(1200, 16) >; /* 18310 MB/s */
+		< MHZ_TO_MBPS(400, 16) >, /*  6103 MB/s */
+		< MHZ_TO_MBPS(500, 16) >, /*  7629 MB/s */
+		< MHZ_TO_MBPS(600, 16) >, /*  9155 MB/s */
+		< MHZ_TO_MBPS(700, 16) >, /*  10681 MB/s */
+		< MHZ_TO_MBPS(800, 16) >, /*  12207 MB/s */
+		< MHZ_TO_MBPS(900, 16) >, /*  13732 MB/s */
+                < MHZ_TO_MBPS(1000, 16) >, /* 15258 MB/s */
+                < MHZ_TO_MBPS(1100, 16) >, /* 16784 MB/s */
+                < MHZ_TO_MBPS(1200, 16) >; /* 18310 MB/s */
 };
 
 &devfreq_cpufreq {
@@ -365,8 +368,8 @@
 &devfreq_compute {
 	qcom,core-dev-table =
 		< 1209600 MHZ_TO_MBPS( 200, 4) >,
-		< 1843200 MHZ_TO_MBPS(1000, 4) >,
-		< 2092800 MHZ_TO_MBPS(2000, 4) >;
+		< 1843200 MHZ_TO_MBPS( 800, 4) >,
+		< 2092800 MHZ_TO_MBPS(1200, 4) >;
 };
 
 &clock_gcc {
