@@ -353,8 +353,7 @@
 		< MHZ_TO_MBPS(800, 16) >, /*  12207 MB/s */
 		< MHZ_TO_MBPS(900, 16) >, /*  13732 MB/s */
                 < MHZ_TO_MBPS(1000, 16) >, /* 15258 MB/s */
-                < MHZ_TO_MBPS(1100, 16) >, /* 16784 MB/s */
-                < MHZ_TO_MBPS(1200, 16) >; /* 18310 MB/s */
+                < MHZ_TO_MBPS(1100, 16) >; /* 16784 MB/s */
 };
 
 &devfreq_cpufreq {
